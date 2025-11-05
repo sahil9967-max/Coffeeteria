@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffeeteria - Premium Coffee Experience</title>
+    <style>
+                /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c1a1d 0%, #3a2618 100%);
+            color: #f8f0e3;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #f8f0e3;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        .nav-menu a:hover {
+            color: #FFD700;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                       url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ceca01a-32b2-4e6f-a2cf-680f9c5b1345.png') center/cover no-repeat;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #f8f0e3;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #3a2618;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #FFD700;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 2px;
+        }
+        
+        /* Specialties Section */
+        .specialties-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .coffee-card {
+            background: linear-gradient(135deg, #4a3428 0%, #6d4c41 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .coffee-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .coffee-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+        
+        .coffee-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+        
+        .coffee-card p {
+            color: #e8d5b5;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .contact-item {
+            background: linear-gradient(135deg, #4a3428 0%, #6d4c41 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .contact-item h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-item p {
+            color: #e8d5b5;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">COFFEETERIA</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#specialties">Specialties</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Coffeeteria</h1>
+            <p>Where every cup tells a story of passion and perfection</p>
+            <a href="#specialties" class="cta-button">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section id="specialties" class="container">
+        <h2 class="section-title">Our Specialties</h2>
+        <div class="specialties-grid">
+            <div class="coffee-card">
+                <div class="coffee-icon">☕</div>
+                <h3>Signature Espresso</h3>
+                <p>Rich, bold, and perfectly balanced with notes of dark chocolate and caramel</p>
+            </div>
+            <div class="coffee-card">
+                <div class="coffee-icon">🧊</div>
+                <h3>Iced Americano</h3>
+                <p>Refreshing and smooth with a crisp finish, perfect for warm days</p>
+            </div>
+            <div class="coffee-card">
+                <div class="coffee-icon">🥛</div>
+                <h3>Velvet Cappuccino</h3>
+                <p>Creamy foam meets robust espresso in this classic Italian favorite</p>
+            </div>
+            <div class="coffee-card">
+                <div class="coffee-icon">🍫</div>
+                <h3>Chocolate Mocha</h3>
+                <p>Indulgent blend of premium chocolate and our signature espresso</p>
+            </div>
+            <div class="coffee-card">
+                <div class="coffee-icon">🌿</div>
+                <h3>Vanilla Latte</h3>
+                <p>Sweet vanilla notes harmonize with our smooth espresso blend</p>
+            </div>
+            <div class="coffee-card">
+                <div class="coffee-icon">❄</div>
+                <h3>Cold Brew</h3>
+                <p>Slow-steeped for 24 hours for maximum smoothness and flavor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">Our Story</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="coffeeteria.png" alt="Warm and inviting coffee shop interior with wooden furniture, exposed brick walls, and comfortable seating areas at Coffeeteria" />
+            </div>
+            <div class="about-text">
+                <p>Founded in 2020, Coffeeteria began as a small passion project between friends who shared a love for exceptional coffee. What started as a humble corner shop has grown into a beloved community gathering place.</p>
+                <p>We source our beans directly from sustainable farms around the world, ensuring every cup supports both quality and ethical practices. Our master baristas are trained in the art of coffee making, bringing you the perfect balance of flavor and craftsmanship.</p>
+                <p>At Coffeeteria, we believe that great coffee is more than just a drink—it's an experience that brings people together, sparks conversations, and creates lasting memories.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>📍 Location</h3>
+                <p>123 Coffee Street<br>Brewville, CT 06457</p>
+            </div>
+            <div class="contact-item">
+                <h3>📞 Phone</h3>
+                <p>(123) 456-7890</p>
+            </div>
+            <div class="contact-item">
+                <h3>✉ Email</h3>
+                <p>abc@123.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>🕒 Hours</h3>
+                <p>Mon-Fri: 6AM - 9PM<br>Sat-Sun: 7AM - 10PM</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
